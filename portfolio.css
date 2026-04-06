@@ -1,0 +1,23 @@
+#contact {
+  padding: 100px 20px;
+}
+
+#contact h2 {
+  margin-bottom: 20px;
+}
+
+#contact p {
+  margin: 10px 0;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+#contact .btn {
+  margin-top: 20px;
+  display: inline-block;
+}
+#contact {
+  text-align: center;
+  max-width: 600px;
+  margin: auto;
+}

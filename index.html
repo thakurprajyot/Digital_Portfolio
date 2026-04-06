@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Prajyot Thakur | Performance Marketing</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
+
+body{
+background:#05070d;
+color:#fff;
+overflow-x:hidden;
+}
+
+/* PARTICLE BACKGROUND */
+canvas{
+position:fixed;
+top:0;
+left:0;
+z-index:-1;
+}
+
+/* NAV */
+nav{
+position:fixed;
+width:100%;
+display:flex;
+justify-content:center;
+gap:25px;
+padding:15px;
+background:rgba(0,0,0,0.5);
+backdrop-filter:blur(10px);
+z-index:1000;
+}
+
+nav a{
+color:#aaa;
+text-decoration:none;
+transition:.3s;
+}
+nav a:hover{color:#00f0ff}
+
+/* HERO */
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+.hero h1{
+font-size:3.5rem;
+text-shadow:0 0 20px #00f0ff;
+}
+
+.hero p{
+color:#aaa;
+margin-top:10px;
+}
+
+.btn{
+padding:12px 25px;
+margin:10px;
+border-radius:10px;
+cursor:pointer;
+border:none;
+}
+
+.primary{
+background:#00f0ff;
+color:#000;
+box-shadow:0 0 20px #00f0ff;
+}
+
+.secondary{
+border:1px solid #555;
+background:transparent;
+color:white;
+}
+
+/* SECTION */
+section{
+padding:80px 20px;
+text-align:center;
+}
+
+/* CARDS */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card{
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.1);
+padding:20px;
+border-radius:15px;
+transition:.3s;
+backdrop-filter:blur(10px);
+}
+
+.card:hover{
+transform:translateY(-10px) scale(1.03);
+box-shadow:0 0 20px #00f0ff33;
+}
+
+/* TAGS */
+.tags span{
+display:inline-block;
+padding:10px;
+margin:5px;
+border-radius:20px;
+background:rgba(255,255,255,0.05);
+}
+
+/* COUNTER */
+.counter{
+font-size:2rem;
+color:#00f0ff;
+}
+
+/* FLOAT BUTTON */
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+padding:15px;
+border-radius:50%;
+color:white;
+font-size:20px;
+text-decoration:none;
+}
+
+/* FADE */
+.fade{opacity:0;transform:translateY(30px);transition:.6s}
+.fade.show{opacity:1;transform:translateY(0)}
+</style>
+</head>
+
+<body>
+
+<canvas id="bg"></canvas>
+
+<!-- NAV -->
+<nav>
+<a href="#home">Home</a>
+<a href="#work">Work</a>
+<a href="#case">Case Studies</a>
+<a href="#tools">Tools</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero">
+<h1>Prajyot Thakur</h1>
+<p>Scaling Brands with Performance Marketing 🚀</p>
+
+<button class="btn primary" onclick="scrollToSection('case')">View Case Studies</button>
+<button class="btn secondary" onclick="scrollToSection('contact')">Contact</button>
+</section>
+
+<!-- STATS -->
+<section>
+<h2>Performance Dashboard</h2>
+<div class="grid fade">
+<div class="card"><div class="counter" data-target="2">0</div><p>Cr+ Ad Spend</p></div>
+<div class="card"><div class="counter" data-target="50">0</div><p>ROAS</p></div>
+<div class="card"><div class="counter" data-target="5000">0</div><p>Leads</p></div>
+<div class="card"><div class="counter" data-target="20">0</div><p>Lakh/day Revenue</p></div>
+</div>
+</section>
+
+<!-- WORK -->
+<section id="work">
+<h2>Clients & Work</h2>
+<div class="grid fade">
+<div class="card">Nippon India Mutual Fund</div>
+<div class="card">Bandhan Bank</div>
+<div class="card">RBI / NABARD / PFRDA</div>
+<div class="card">MIT WPU – 5000+ Leads</div>
+<div class="card">Ritvaa – 2x ROAS</div>
+</div>
+</section>
+
+<!-- CASE STUDY -->
+<section id="case">
+<h2>Case Study</h2>
+<div class="grid fade">
+<div class="card">
+<h3>Bandhan AMC</h3>
+<p>Targeted HNI strategy + retargeting funnel</p>
+<p class="counter" data-target="50">0</p>
+<p>ROAS Achieved</p>
+</div>
+</div>
+</section>
+
+<!-- TOOLS -->
+<section id="tools">
+<h2>Tools</h2>
+<div class="tags fade">
+<span>Google Ads</span>
+<span>Meta Ads</span>
+<span>DV360</span>
+<span>Analytics</span>
+<span>SEMrush</span>
+<span>Ahrefs</span>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Let’s Work Together 🚀</h2>
+
+  <p>Email: prajyotthakkur@gmail.com</p>
+  <p>Phone: 7498317485</p>
+
+  <a href="mailto:prajyotthakkur@gmail.com">
+  </a>
+</section>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/917498317485" class="whatsapp">💬</a>
+
+<script>
+// scroll
+function scrollToSection(id){
+document.getElementById(id).scrollIntoView({behavior:'smooth'});
+}
+
+// fade animation
+const fades=document.querySelectorAll('.fade');
+window.addEventListener('scroll',()=>{
+fades.forEach(el=>{
+if(el.getBoundingClientRect().top<window.innerHeight-50){
+el.classList.add('show')
+}
+})
+});
+
+// counter animation
+const counters=document.querySelectorAll('.counter');
+let started=false;
+
+window.addEventListener('scroll',()=>{
+if(!started){
+counters.forEach(counter=>{
+let update=()=>{
+let target=+counter.getAttribute('data-target');
+let count=+counter.innerText;
+let inc=target/100;
+
+if(count<target){
+counter.innerText=Math.ceil(count+inc);
+setTimeout(update,20);
+}else{
+counter.innerText=target;
+}
+}
+update();
+});
+started=true;
+}
+});
+
+// particles
+const canvas=document.getElementById('bg');
+const ctx=canvas.getContext('2d');
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let particles=[];
+for(let i=0;i<100;i++){
+particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:1+Math.random()*2});
+}
+
+function draw(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+ctx.fillStyle='#00f0ff';
+particles.forEach(p=>{
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+ctx.fill();
+p.y+=0.3;
+if(p.y>canvas.height)p.y=0;
+});
+requestAnimationFrame(draw);
+}
+draw();
+</script>
+
+</body>
+</html>
